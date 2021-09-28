@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define N_VECES 1000000 //numero de iteraciones para encontrar el promedio
+#define N_VECES 10000 //numero de iteraciones para encontrar el promedio
 
 /*
     En este caso medio se va a iterar el algoritmo para encontrar los numeros mayores del arreglo.
@@ -16,17 +16,11 @@ int main(int argc, char **argv){
 
     if(argc != 2 || A == NULL)
         exit(0);
-
     n = atoi(argv[1]); //recibimos los n numeros del arreglo por consola
-
     A = malloc(n*sizeof(int)); //arreglo dinamico
 
-
-
     for(j=0;j<N_VECES;j++){
-
         i = 0; cont = 0;
-
         //creamos un arreglo con numeros al azar
         for(i=0;i<n;i++){
             A[i] = rand() % 30000 + 1;
@@ -36,14 +30,12 @@ int main(int argc, char **argv){
             cont++; // comparacion if
             mayor1 = A[0]; cont++; //Asignacion
             mayor2 = A[1]; cont++; //Asignacion
-
         }else{
             cont++; // comparacion if
             mayor1 = A[1]; cont++; //Asignacion
             mayor2 = A[0]; cont++; //Asignacion
         }
         i = 2;
-
         while(i < n){
             cont++; // comparacion if
             if(A[i] > mayor1 || A[i] == mayor1 ){
@@ -54,15 +46,11 @@ int main(int argc, char **argv){
                 if(A[i] > mayor2 || A[i] > mayor2){
                     mayor2 = A[i]; cont++; //Asignacion
                 }
-
             }
             i = i + 1;
         }
-
         promedio = promedio + (float)cont; //sumamos el promedio
     }
-
-
     promedio = promedio / N_VECES; //calculamos el promedio
     printf("\nPromedio: %f operaciones", promedio);
     printf("\nNumero de operaciones: %d", cont);

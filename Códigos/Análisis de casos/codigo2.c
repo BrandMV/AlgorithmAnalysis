@@ -14,7 +14,7 @@ int main(){
         residuo = 1;
 
         mientras(residuo > 0){
-            residuo = a mod b;
+            residuo = a mod b; ---------> 1 operacion mod
             a = b;
             b = residuo;
         }

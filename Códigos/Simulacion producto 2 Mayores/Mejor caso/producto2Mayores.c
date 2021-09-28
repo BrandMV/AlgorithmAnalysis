@@ -6,14 +6,12 @@
 */
 int main(int argc, char **argv){
     int n=0, i=0, mayor2, mayor1, res=0, j, aux;
-    int cont = 0; //variable para contar numero de operaciones
-    int *A;
+    int *A;int cont = 0; //variable para contar numero de operaciones
 
     if(argc != 2 || A == NULL)
         exit(0);
 
     n = atoi(argv[1]); //recibimos los n numeros del arreglo por consola
-
     A = malloc(n*sizeof(int)); //arreglo dinamico
 
     //leemos los n numeros de un archivo
@@ -21,12 +19,10 @@ int main(int argc, char **argv){
         scanf("%d", &A[i]);
     }
 
-   
     if(A[0] > A[1]){
         cont++; //comparacion if
         mayor1 = A[0]; cont++; //Asignacion
         mayor2 = A[1]; cont++; //Asignacion
-
     }else{
         cont++;
         mayor1 = A[1]; cont++; //Asignacion
@@ -44,13 +40,10 @@ int main(int argc, char **argv){
             if(A[i] > mayor2){
                 mayor2 = A[i]; cont++; //Asignacion
             }
-
         }
         i = i + 1;
     }
-
     printf("\nNumero de operaciones: %d", cont);
-
     res = mayor1 * mayor2;
 
     return 0;
